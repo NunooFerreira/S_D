@@ -1,5 +1,5 @@
 //Simple winsock client
-
+// 192.168.1.69 - meu
 
 #include<stdio.h>
 #include<winsock2.h>
@@ -16,6 +16,7 @@ int main(int argc, char* argv[])
     int recv_size;
     int ws_result;
     char mess[100];
+    
 
     // Initialise winsock
     printf("\nInitialising Winsock...");
@@ -37,7 +38,7 @@ int main(int argc, char* argv[])
     printf("Socket created.\n");
 
     // create the socket  address (ip address and port)
-    server.sin_addr.s_addr = inet_addr("192.168.56.1");
+    server.sin_addr.s_addr = inet_addr("192.168.121.229");
     server.sin_family = AF_INET;
     server.sin_port = htons(68000);
 
@@ -49,10 +50,10 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    puts("Connected");
+    puts("Connected\n");
 
     do {
-        printf("Por favor insira uma frase!\n");
+        printf("Falar com o cliente:\n");
         scanf("%s", mess);
 
 
@@ -62,7 +63,7 @@ int main(int argc, char* argv[])
             puts("Send failed");
             return 1;
         }
-        puts("Data Sent\n");
+        // puts("Data Sent");
 
         //Receive a reply from the server
         recv_size = recv(s, server_reply, 2000, 0);
@@ -70,12 +71,14 @@ int main(int argc, char* argv[])
         {
             puts("recv failed");
         }
+        // puts("Reply received");
+        
 
-        puts("Reply received\n");
-
+        
         //Add a NULL terminating character to make it a proper string before printing
         server_reply[recv_size] = '\0';
         puts(server_reply);
+        
 
     } while (mess != "bye");
 

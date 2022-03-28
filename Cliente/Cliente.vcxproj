@@ -141,6 +141,12 @@
   <ItemGroup>
     <ClCompile Include="Client.c" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Teatros.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="texto.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
