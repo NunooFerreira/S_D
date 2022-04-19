@@ -15,7 +15,8 @@ int main(int argc, char* argv[])
     char* message, server_reply[2000];
     int recv_size;
     int ws_result;
-    char mess[100];
+    char mess[1024];
+    int i;
     
 
     // Initialise winsock
@@ -38,7 +39,7 @@ int main(int argc, char* argv[])
     printf("Socket created.\n");
 
     // create the socket  address (ip address and port)
-    server.sin_addr.s_addr = inet_addr("192.168.121.229");
+    server.sin_addr.s_addr = inet_addr("192.168.1.106");
     server.sin_family = AF_INET;
     server.sin_port = htons(68000);
 
@@ -52,10 +53,20 @@ int main(int argc, char* argv[])
 
     puts("Connected\n");
 
+
+    strcpy(mess, "menu");
+    ws_result = send(s, mess, strlen(mess), 0);
+    recv_size = recv(s, server_reply, 2000, 0);
+    server_reply[recv_size] = '\0';
+    puts(server_reply);
+   
+
+
     do {
-        printf("Falar com o cliente:\n");
+        printf("\nFalar com o Servidor: ");
         scanf("%s", mess);
 
+       
 
         ws_result = send(s, mess, strlen(mess), 0);
         if (ws_result < 0)
@@ -65,22 +76,32 @@ int main(int argc, char* argv[])
         }
         // puts("Data Sent");
 
+        
+        
         //Receive a reply from the server
         recv_size = recv(s, server_reply, 2000, 0);
         if (recv_size == SOCKET_ERROR)
         {
             puts("recv failed");
         }
-        // puts("Reply received");
+        //puts("Reply received");
         
 
-        
+
         //Add a NULL terminating character to make it a proper string before printing
         server_reply[recv_size] = '\0';
         puts(server_reply);
         
+      
+       
 
+
+        
+         
+
+    
     } while (mess != "bye");
+
 
     // Close the socket
     closesocket(s);

@@ -20,13 +20,28 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Teatros.csv">
-      <Filter>Source Files</Filter>
+    <None Include="Menu.txt">
+      <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="texto.txt">
-      <Filter>Source Files</Filter>
+    <Text Include="teatros.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Horarios_L.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Horarios_C.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Horarios_V.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Horarios_VR.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Logs.txt">
+      <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
 </Project>

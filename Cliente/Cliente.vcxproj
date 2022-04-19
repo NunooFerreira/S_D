@@ -142,10 +142,15 @@
     <ClCompile Include="Client.c" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Teatros.csv" />
+    <None Include="Menu.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="texto.txt" />
+    <Text Include="Horarios_C.txt" />
+    <Text Include="Horarios_L.txt" />
+    <Text Include="Horarios_V.txt" />
+    <Text Include="Horarios_VR.txt" />
+    <Text Include="Logs.txt" />
+    <Text Include="teatros.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
